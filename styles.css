@@ -175,8 +175,8 @@ nav .nav-contact {
 .hero-copy,
 .profile-card,
 .section-heading > *,
-.project-copy,
-.project-media,
+.project-showcase,
+.project-showcase-details,
 .about > * {
   min-width: 0;
 }
@@ -413,174 +413,60 @@ h1 {
   color: var(--ink-soft);
 }
 
-.project-featured {
-  display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(340px, 0.8fr);
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
   overflow: hidden;
-  margin-top: 24px;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.project-showcase {
+  overflow: hidden;
+  margin-top: 34px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--paper-bright);
   box-shadow: var(--shadow);
 }
 
-.project-reverse {
-  grid-template-columns: minmax(340px, 0.8fr) minmax(0, 1.2fr);
-  margin-top: 34px;
-}
-
-.project-reverse .project-media {
-  grid-column: 2;
-}
-
-.project-reverse .project-copy {
-  grid-row: 1;
-  grid-column: 1;
-}
-
-.project-media {
-  min-height: 470px;
-  padding: 42px 0 42px 42px;
+.project-showcase-visual {
+  display: block;
+  padding: clamp(16px, 2.4vw, 30px);
   background: var(--night-soft);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.project-media img {
+.project-showcase-visual img {
+  display: block;
   width: 100%;
-  height: 100%;
-  min-height: 380px;
+  height: auto;
   border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 14px 0 0 14px;
-  object-fit: cover;
-  object-position: top left;
+  border-radius: 18px;
   box-shadow: 0 22px 50px rgba(0, 0, 0, 0.25);
 }
 
-.civicops-media {
+.project-showcase-details {
   display: grid;
-  place-items: center;
-  padding: 42px;
-  background:
-    radial-gradient(circle at 80% 15%, rgba(139, 188, 255, 0.22), transparent 34%),
-    var(--night-soft);
-}
-
-.civicops-panel {
-  width: min(100%, 610px);
-  padding: clamp(24px, 4vw, 38px);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 18px;
-  background: rgba(8, 25, 24, 0.92);
-  color: #fff;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
-}
-
-.civicops-panel-topline,
-.civicops-flow > div,
-.civicops-services {
-  display: flex;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
+  gap: 34px;
+  padding: 26px clamp(24px, 4vw, 42px) 28px;
 }
 
-.civicops-panel-topline {
-  justify-content: space-between;
-  gap: 20px;
-  padding-bottom: 18px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  font-size: 0.82rem;
-  font-weight: 800;
+.project-showcase-details > p {
+  max-width: 760px;
+  margin: 0;
+  color: var(--ink-soft);
 }
 
-.civicops-panel-topline > span {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.civicops-panel-topline strong {
-  color: var(--mint);
-  font-size: 0.76rem;
-}
-
-.civicops-panel-topline i {
-  display: inline-block;
-  width: 7px;
-  height: 7px;
-  margin-right: 7px;
-  border-radius: 50%;
-  background: var(--mint);
-  box-shadow: 0 0 0 5px rgba(98, 230, 178, 0.12);
-}
-
-.civicops-panel-label {
-  margin: 24px 0 15px;
-  color: rgba(255, 255, 255, 0.62);
-  font-size: 0.76rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.civicops-flow {
-  display: grid;
-  gap: 10px;
-}
-
-.civicops-flow > div {
-  display: grid;
-  grid-template-columns: 34px 1fr;
-  padding: 13px 15px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.035);
-}
-
-.civicops-flow span {
-  grid-row: 1 / 3;
-  color: var(--mint);
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 0.72rem;
-  font-weight: 800;
-}
-
-.civicops-flow strong {
-  font-size: 0.86rem;
-}
-
-.civicops-flow small {
-  color: rgba(255, 255, 255, 0.54);
-  font-size: 0.72rem;
-}
-
-.civicops-services {
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 18px;
-}
-
-.civicops-services span {
-  padding: 5px 9px;
-  border: 1px solid rgba(98, 230, 178, 0.25);
-  border-radius: 999px;
-  color: rgba(255, 255, 255, 0.72);
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 0.64rem;
-}
-
-.sql-media {
-  padding: 42px 42px 42px 0;
-  background: #d8e7df;
-}
-
-.sql-media img {
-  border-color: rgba(8, 25, 24, 0.12);
-  border-radius: 0 14px 14px 0;
-  box-shadow: 0 22px 50px rgba(8, 25, 24, 0.16);
-}
-
-.project-copy {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: clamp(36px, 6vw, 70px);
+.project-showcase-details .project-links {
+  justify-content: flex-end;
+  margin-top: 0;
 }
 
 .project-index {
@@ -588,7 +474,6 @@ h1 {
   text-transform: uppercase;
 }
 
-.project h3,
 .project-card h3,
 .approach-grid h3 {
   margin: 0;
@@ -597,7 +482,6 @@ h1 {
   line-height: 1.08;
 }
 
-.project-copy > p:not(.project-index),
 .project-card > p:not(.project-index) {
   margin: 22px 0 0;
   color: var(--ink-soft);
@@ -825,33 +709,13 @@ footer {
     gap: 26px;
   }
 
-  .project-featured,
-  .project-reverse {
+  .project-showcase-details {
     grid-template-columns: 1fr;
+    gap: 22px;
   }
 
-  .project-reverse .project-media,
-  .project-reverse .project-copy {
-    grid-row: auto;
-    grid-column: auto;
-  }
-
-  .project-media,
-  .sql-media {
-    min-height: 360px;
-    padding: 30px 0 30px 30px;
-  }
-
-  .civicops-media {
-    padding: 30px;
-  }
-
-  .sql-media {
-    padding: 30px 30px 30px 0;
-  }
-
-  .project-media img {
-    min-height: 300px;
+  .project-showcase-details .project-links {
+    justify-content: flex-start;
   }
 }
 
@@ -915,25 +779,18 @@ footer {
     margin-bottom: 38px;
   }
 
-  .project-media,
-  .sql-media {
-    min-height: 280px;
-    padding: 20px 0 20px 20px;
+  .project-showcase-visual {
+    padding: 10px;
   }
 
-  .civicops-media {
-    padding: 20px;
+  .project-showcase-visual img {
+    border-radius: 12px;
   }
 
-  .sql-media {
-    padding: 20px 20px 20px 0;
+  .project-showcase-details {
+    padding: 24px;
   }
 
-  .project-media img {
-    min-height: 240px;
-  }
-
-  .project-copy,
   .project-card {
     padding: 30px 24px;
   }
